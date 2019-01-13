@@ -1,18 +1,31 @@
 import React from 'react';
 import Logout from '../Logout';
 import { render, cleanup } from 'react-testing-library';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
+import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';
 
 afterEach(cleanup);
 
-describe('Logout Page', () => {
-  it('Renders Logout page', () => {
-    const { container } = render(
-      <BrowserRouter>
+const auth = authContextDefaults;
+const TestComponent = (props: any) => {
+  return (
+    <AuthContext.Provider value={props.auth}>
+      <MemoryRouter initialEntries={['/foo']} initialIndex={0}>
         <Logout />
-      </BrowserRouter>
-    );
-    const page = container.querySelector('.logoutPage');
-    expect(page).not.toEqual(null);
+      </MemoryRouter>
+    </AuthContext.Provider>
+  );
+};
+
+describe('Logout Page', () => {
+  it('Renders spinner and calls logout', () => {
+    let called = false;
+    auth.logout = () => {
+      called = true;
+      return null;
+    };
+    const { container } = render(<TestComponent auth={auth} />);
+    expect(called).toBeTruthy();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

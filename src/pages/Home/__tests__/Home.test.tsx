@@ -4,12 +4,9 @@ import { render, cleanup } from 'react-testing-library';
 
 afterEach(cleanup);
 
-jest.mock('auth0-js');
-
 describe('Home', () => {
   it('Renders Home page', () => {
     const { container } = render(<Home />);
-    const page = container.querySelector('.home');
-    expect(page).not.toEqual(null);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

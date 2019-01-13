@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin Renders Admin page 1`] = `
+<main
+  class="admin"
+>
+  <h1>
+    Admin
+  </h1>
+</main>
+`;

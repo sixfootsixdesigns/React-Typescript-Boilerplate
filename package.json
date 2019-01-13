@@ -11,6 +11,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,scss,json,js,jsx,css}\"",
     "format:check": "prettier --list-different \"src/**/*.{ts,tsx,scss,json,js,jsx,css}\"",
     "test": "jest --silent",
+    "test:update": "yarn test -u",
     "test:watch": "jest --watch"
   },
   "dependencies": {

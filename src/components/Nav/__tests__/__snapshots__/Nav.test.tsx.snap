@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav Logged In State 1`] = `
+<div
+  class="Navbar"
+>
+  <span
+    id="loggedInUser"
+  >
+    Logged in as: 
+    Bob
+  </span>
+  <a
+    aria-current="page"
+    class="active"
+    href="/"
+  >
+    Home
+  </a>
+  <a
+    href="/admin"
+  >
+    Admin
+  </a>
+  <a
+    href="/logout"
+    id="logout-link"
+  >
+    Logout
+  </a>
+</div>
+`;
+
+exports[`Nav Logged out State 1`] = `
+<div
+  class="Navbar"
+>
+  <a
+    aria-current="page"
+    class="active"
+    href="/"
+  >
+    Home
+  </a>
+  <a
+    href="/admin"
+  >
+    Admin
+  </a>
+  <a
+    href="/login"
+    id="login-link"
+  >
+    Login
+  </a>
+</div>
+`;
+
+exports[`Nav Renders Nav 1`] = `
+<div
+  class="Navbar"
+>
+  <a
+    aria-current="page"
+    class="active"
+    href="/"
+  >
+    Home
+  </a>
+  <a
+    href="/admin"
+  >
+    Admin
+  </a>
+  <a
+    href="/login"
+    id="login-link"
+  >
+    Login
+  </a>
+</div>
+`;

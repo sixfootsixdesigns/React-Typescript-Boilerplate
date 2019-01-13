@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Callback Page Renders error 1`] = `
+<div
+  class="callbackPage"
+>
+  <div
+    class="error"
+  >
+    error
+  </div>
+</div>
+`;
+
+exports[`Callback Page Renders spinner and calls handleAuthentication 1`] = `
+<div
+  class="callbackPage"
+>
+  <div
+    class="Spinner"
+  >
+    <div
+      class="Spinner-spinner"
+    >
+      <svg
+        viewBox="0 0 64 64"
+      >
+        <circle
+          r="26"
+          transform="translate(32,32)"
+        />
+      </svg>
+    </div>
+    <div
+      class="Spinner-content"
+    >
+      Loading Your Profile
+    </div>
+  </div>
+</div>
+`;

@@ -7,7 +7,6 @@ afterEach(cleanup);
 describe('Admin', () => {
   it('Renders Admin page', () => {
     const { container } = render(<Admin />);
-    const page = container.querySelector('.admin');
-    expect(page).not.toEqual(null);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

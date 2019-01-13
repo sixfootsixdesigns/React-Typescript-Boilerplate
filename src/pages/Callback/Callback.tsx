@@ -17,23 +17,22 @@ class Callback extends React.Component<CallbackProps, CallbackState> {
   };
 
   public componentDidMount() {
-    this.context
-      .handleAuthentication()
-      .then(() => {
+    try {
+      this.context.handleAuthentication().then(() => {
         this.props.history.replace('/');
-      })
-      .catch((ex: any) => {
-        this.setState({
-          error: ex.errorDescription
-        });
       });
+    } catch (ex) {
+      this.setState({
+        error: ex.errorDescription || ex.message
+      });
+    }
   }
 
   public render() {
     return (
       <div className="callbackPage">
         {this.state.error ? (
-          this.state.error
+          <div className="error">{this.state.error}</div>
         ) : (
           <Spinner text="Loading Your Profile" />
         )}

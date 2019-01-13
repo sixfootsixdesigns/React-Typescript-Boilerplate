@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecuredRoute Renders Spinner if checking session 1`] = `
+<div
+  class="Spinner"
+>
+  <div
+    class="Spinner-spinner"
+  >
+    <svg
+      viewBox="0 0 64 64"
+    >
+      <circle
+        r="26"
+        transform="translate(32,32)"
+      />
+    </svg>
+  </div>
+  <div
+    class="Spinner-content"
+  >
+    Checking Session
+  </div>
+</div>
+`;
+
+exports[`SecuredRoute Renders page if authed 1`] = `
+<div>
+  My Page
+</div>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Renders App 1`] = `
+<div
+  class="Navbar"
+>
+  <a
+    aria-current="page"
+    class="active"
+    href="/"
+  >
+    Home
+  </a>
+  <a
+    href="/admin"
+  >
+    Admin
+  </a>
+  <a
+    href="/login"
+    id="login-link"
+  >
+    Login
+  </a>
+</div>
+`;

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner Renders Spinner 1`] = `
+<div
+  class="Spinner"
+>
+  <div
+    class="Spinner-spinner"
+  >
+    <svg
+      viewBox="0 0 64 64"
+    >
+      <circle
+        r="26"
+        transform="translate(32,32)"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Spinner Renders Spinner with text 1`] = `
+<div
+  class="Spinner"
+>
+  <div
+    class="Spinner-spinner"
+  >
+    <svg
+      viewBox="0 0 64 64"
+    >
+      <circle
+        r="26"
+        transform="translate(32,32)"
+      />
+    </svg>
+  </div>
+  <div
+    class="Spinner-content"
+  >
+    Foo
+  </div>
+</div>
+`;
+
+exports[`Spinner Renders Spinner without overlay 1`] = `
+<div
+  class="Spinner Spinner--noOverlay"
+>
+  <div
+    class="Spinner-spinner"
+  >
+    <svg
+      viewBox="0 0 64 64"
+    >
+      <circle
+        r="26"
+        transform="translate(32,32)"
+      />
+    </svg>
+  </div>
+</div>
+`;
