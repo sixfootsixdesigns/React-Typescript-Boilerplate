@@ -1,0 +1,44 @@
+{
+  "name": "react-project",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "React Typescript project with Parcel and Auth0",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "yarn build:clean; parcel build src/index.html",
+    "build:clean": "./scripts/build-setup.sh",
+    "lint": "tslint --project .",
+    "format": "prettier --write \"src/**/*.{ts,tsx,scss,json,js,jsx,css}\"",
+    "format:check": "prettier --list-different \"src/**/*.{ts,tsx,scss,json,js,jsx,css}\"",
+    "test": "jest --silent",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "auth0-js": "^9.8.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/auth0-js": "^8.11.8",
+    "@types/classnames": "^2.2.7",
+    "@types/jest": "^23.3.11",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.6",
+    "@types/react-dom": "^16.0.9",
+    "@types/react-router": "^4.4.3",
+    "@types/react-router-dom": "^4.3.1",
+    "classnames": "^2.2.6",
+    "jest": "^23.6.0",
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.15.3",
+    "react-testing-library": "^5.4.4",
+    "sass": "^1.15.2",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2"
+  }
+}
