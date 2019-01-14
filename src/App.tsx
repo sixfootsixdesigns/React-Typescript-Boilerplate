@@ -57,11 +57,11 @@ class App extends React.Component<AppProps, AuthContextInterface> {
       <AuthContext.Provider value={this.state}>
         <Nav />
         <Switch>
-          <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/logout" component={Logout} />
           <Route exact={true} path="/callback" component={Callback} />
           <SecuredRoute exact={true} path="/admin" component={Admin} />
+          <Route exact={true} path="/" component={Home} />
           <Redirect to="/" />
         </Switch>
       </AuthContext.Provider>

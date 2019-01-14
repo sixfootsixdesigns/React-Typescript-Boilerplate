@@ -1,13 +1,15 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { AuthContext } from '../../lib/AuthContext';
-import { Spinner } from '../../components/Spinner/Spinner';
+import { AuthContext, AuthContextInterface } from '../../lib/AuthContext';
+import Spinner from '../../components/Spinner/Spinner';
 
 interface CallbackState {
   error: string | null;
 }
 
-interface CallbackProps extends RouteComponentProps<any> {}
+interface CallbackProps extends RouteComponentProps<any> {
+  auth: AuthContextInterface;
+}
 
 class Callback extends React.Component<CallbackProps, CallbackState> {
   public static contextType = AuthContext;
@@ -17,8 +19,9 @@ class Callback extends React.Component<CallbackProps, CallbackState> {
   };
 
   public componentDidMount() {
+    const { auth } = this.props;
     try {
-      this.context.handleAuthentication().then(() => {
+      auth.handleAuthentication().then(() => {
         this.props.history.replace('/');
       });
     } catch (ex) {
@@ -42,6 +45,13 @@ class Callback extends React.Component<CallbackProps, CallbackState> {
 }
 
 const CallbackWithRouter = withRouter(Callback);
-delete CallbackWithRouter.contextType;
 
-export default CallbackWithRouter;
+const CallbackWithContextAndRouter = () => {
+  return (
+    <AuthContext.Consumer>
+      {authContext => <CallbackWithRouter auth={authContext} />}
+    </AuthContext.Consumer>
+  );
+};
+
+export default CallbackWithContextAndRouter;

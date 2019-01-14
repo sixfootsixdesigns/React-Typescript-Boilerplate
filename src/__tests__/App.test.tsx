@@ -5,8 +5,6 @@ import { MemoryRouter } from 'react-router-dom';
 
 afterEach(cleanup);
 
-jest.mock('auth0-js');
-
 describe('App', () => {
   it('Renders App', () => {
     const { container } = render(

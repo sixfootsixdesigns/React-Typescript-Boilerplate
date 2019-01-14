@@ -2,11 +2,9 @@
 
 exports[`App Renders App 1`] = `
 <div
-  class="Navbar"
+  class="navbar"
 >
   <a
-    aria-current="page"
-    class="active"
     href="/"
   >
     Home

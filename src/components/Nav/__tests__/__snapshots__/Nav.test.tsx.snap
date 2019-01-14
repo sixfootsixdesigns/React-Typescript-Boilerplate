@@ -2,7 +2,7 @@
 
 exports[`Nav Logged In State 1`] = `
 <div
-  class="Navbar"
+  class="navbar"
 >
   <span
     id="loggedInUser"
@@ -11,8 +11,6 @@ exports[`Nav Logged In State 1`] = `
     Bob
   </span>
   <a
-    aria-current="page"
-    class="active"
     href="/"
   >
     Home
@@ -33,11 +31,9 @@ exports[`Nav Logged In State 1`] = `
 
 exports[`Nav Logged out State 1`] = `
 <div
-  class="Navbar"
+  class="navbar"
 >
   <a
-    aria-current="page"
-    class="active"
     href="/"
   >
     Home
@@ -58,11 +54,9 @@ exports[`Nav Logged out State 1`] = `
 
 exports[`Nav Renders Nav 1`] = `
 <div
-  class="Navbar"
+  class="navbar"
 >
   <a
-    aria-current="page"
-    class="active"
     href="/"
   >
     Home
