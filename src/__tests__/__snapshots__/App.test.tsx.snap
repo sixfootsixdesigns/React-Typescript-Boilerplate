@@ -1,24 +1,193 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Renders App 1`] = `
-<div
-  class="navbar"
->
-  <a
-    href="/"
+exports[`App Renders Admin 1`] = `
+<div>
+  <div
+    class="navbar"
   >
-    Home
-  </a>
-  <a
-    href="/admin"
+    <a
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      href="/admin"
+    >
+      Admin
+    </a>
+    <a
+      href="/logout"
+      id="logout-link"
+    >
+      Logout
+    </a>
+  </div>
+  <main
+    class="admin"
   >
-    Admin
-  </a>
-  <a
-    href="/login"
-    id="login-link"
+    <h1>
+      Admin
+    </h1>
+  </main>
+</div>
+`;
+
+exports[`App Renders App home 1`] = `
+<div>
+  <div
+    class="navbar"
   >
-    Login
-  </a>
+    <a
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      href="/admin"
+    >
+      Admin
+    </a>
+    <a
+      href="/login"
+      id="login-link"
+    >
+      Login
+    </a>
+  </div>
+  <main
+    class="home"
+  >
+    <h1>
+      Welcome
+    </h1>
+  </main>
+</div>
+`;
+
+exports[`App Renders callback 1`] = `
+<div>
+  <div
+    class="navbar"
+  >
+    <a
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      href="/admin"
+    >
+      Admin
+    </a>
+    <a
+      href="/logout"
+      id="logout-link"
+    >
+      Logout
+    </a>
+  </div>
+  <div
+    class="callbackPage"
+  >
+    <div
+      class="Spinner"
+    >
+      <div
+        class="Spinner-spinner"
+      >
+        <svg
+          viewBox="0 0 64 64"
+        >
+          <circle
+            r="26"
+            transform="translate(32,32)"
+          />
+        </svg>
+      </div>
+      <div
+        class="Spinner-content"
+      >
+        Loading Your Profile
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App Renders login 1`] = `
+<div>
+  <div
+    class="navbar"
+  >
+    <a
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      href="/admin"
+    >
+      Admin
+    </a>
+    <a
+      href="/logout"
+      id="logout-link"
+    >
+      Logout
+    </a>
+  </div>
+  <div
+    class="Spinner loginPage"
+  >
+    <div
+      class="Spinner-spinner"
+    >
+      <svg
+        viewBox="0 0 64 64"
+      >
+        <circle
+          r="26"
+          transform="translate(32,32)"
+        />
+      </svg>
+    </div>
+    <div
+      class="Spinner-content"
+    >
+      Logging in
+    </div>
+  </div>
+</div>
+`;
+
+exports[`App Renders logout 1`] = `
+<div>
+  <div
+    class="navbar"
+  >
+    <a
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      href="/admin"
+    >
+      Admin
+    </a>
+    <a
+      href="/logout"
+      id="logout-link"
+    >
+      Logout
+    </a>
+  </div>
+  <main
+    class="home"
+  >
+    <h1>
+      Welcome
+    </h1>
+  </main>
 </div>
 `;

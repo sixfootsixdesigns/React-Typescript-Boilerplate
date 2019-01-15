@@ -11,35 +11,25 @@ import Admin from './pages/Admin/Admin';
 import Login from './pages/Login/Login';
 import Logout from './pages/Logout/Logout';
 import SecuredRoute from './components/SecuredRoute/SecuredRoute';
-import AuthClient from './lib/auth';
 import Nav from './components/Nav/Nav';
-import { AuthContext, AuthContextInterface } from './lib/AuthContext';
 import './app.scss';
 import Home from './pages/Home/Home';
+import { AuthContext, AuthContextInterface } from './lib/AuthContext';
 
-interface AppProps extends RouteComponentProps<any> {}
+interface AppProps extends RouteComponentProps<any> {
+  auth: AuthContextInterface;
+}
 
-class App extends React.Component<AppProps, AuthContextInterface> {
-  public state = {
-    checkingSession: true,
-    getAccessToken: AuthClient.getAccessToken,
-    getIdToken: AuthClient.getIdToken,
-    getProfile: AuthClient.getProfile,
-    isAuthenticated: AuthClient.isAuthenticated,
-    handleAuthentication: AuthClient.handleAuthentication,
-    silentAuth: AuthClient.silentAuth,
-    login: AuthClient.login,
-    logout: AuthClient.logout
-  };
-
+class App extends React.Component<AppProps> {
   public async componentDidMount() {
+    const { auth } = this.props;
     if (this.props.location.pathname === '/callback') {
       this.setState({ checkingSession: false });
       return;
     }
 
     // check to see if user is already authed
-    this.state
+    auth
       .silentAuth()
       .then(() => {
         this.setState({ checkingSession: false });
@@ -54,7 +44,7 @@ class App extends React.Component<AppProps, AuthContextInterface> {
 
   public render() {
     return (
-      <AuthContext.Provider value={this.state}>
+      <div>
         <Nav />
         <Switch>
           <Route exact={true} path="/login" component={Login} />
@@ -64,9 +54,19 @@ class App extends React.Component<AppProps, AuthContextInterface> {
           <Route exact={true} path="/" component={Home} />
           <Redirect to="/" />
         </Switch>
-      </AuthContext.Provider>
+      </div>
     );
   }
 }
 
-export default withRouter(App);
+const AppWithRouter = withRouter(App);
+
+const AppWithContextAndRouter = () => {
+  return (
+    <AuthContext.Consumer>
+      {authContext => <AppWithRouter auth={authContext} />}
+    </AuthContext.Consumer>
+  );
+};
+
+export default AppWithContextAndRouter;
