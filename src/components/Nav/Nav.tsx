@@ -1,36 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../lib/AuthContext';
 import './nav.scss';
+import { withAuth, AuthProps } from '../../lib/with-auth';
 
-class Nav extends React.Component {
-  public static contextType = AuthContext;
+class Nav extends React.Component<AuthProps> {
   public render() {
-    const profile = this.context.getProfile();
+    const { auth } = this.props;
+    const profile = auth.getProfile();
     return (
-      <AuthContext.Consumer>
-        {authContext => (
-          <div className="navbar">
-            {this.context.isAuthenticated() && profile && (
-              <span id="loggedInUser">Logged in as: {profile.name}</span>
-            )}
-            <Link to="/">Home</Link>
-            <Link to="/admin">Admin</Link>
-            {this.context.isAuthenticated() && (
-              <Link id="logout-link" to="/logout">
-                Logout
-              </Link>
-            )}
-            {!this.context.isAuthenticated() && (
-              <Link id="login-link" to="/login">
-                Login
-              </Link>
-            )}
-          </div>
+      <div className="navbar">
+        {auth.isAuthenticated() && profile && (
+          <span id="loggedInUser">Logged in as: {profile.name}</span>
         )}
-      </AuthContext.Consumer>
+        <Link to="/">Home</Link>
+        <Link to="/admin">Admin</Link>
+        {auth.isAuthenticated() && (
+          <Link id="logout-link" to="/logout">
+            Logout
+          </Link>
+        )}
+        {!auth.isAuthenticated() && (
+          <Link id="login-link" to="/login">
+            Login
+          </Link>
+        )}
+      </div>
     );
   }
 }
 
-export default Nav;
+export default withAuth(Nav);

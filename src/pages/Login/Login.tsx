@@ -1,12 +1,11 @@
 import React from 'react';
-import { AuthContext } from '../../lib/AuthContext';
 import Spinner from '../../components/Spinner/Spinner';
+import { withAuth, AuthProps } from '../../lib/with-auth';
 
-class Login extends React.Component {
-  public static contextType = AuthContext;
-
+class Login extends React.Component<AuthProps> {
   public componentDidMount() {
-    this.context.login();
+    const { auth } = this.props;
+    auth.login();
   }
 
   public render() {
@@ -14,4 +13,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withAuth(Login);

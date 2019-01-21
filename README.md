@@ -1,4 +1,4 @@
-# React Typescipt Boilerplate
+# React Typescript Boilerplate
 
 React library using the following
 - Typescript

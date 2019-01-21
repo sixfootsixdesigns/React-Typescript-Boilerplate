@@ -14,17 +14,15 @@ import SecuredRoute from './components/SecuredRoute/SecuredRoute';
 import Nav from './components/Nav/Nav';
 import './app.scss';
 import Home from './pages/Home/Home';
-import { AuthContext, AuthContextInterface } from './lib/AuthContext';
+import { withAuth, AuthProps } from './lib/with-auth';
 
-interface AppProps extends RouteComponentProps<any> {
-  auth: AuthContextInterface;
-}
+interface AppProps extends AuthProps, RouteComponentProps<any> {}
 
 class App extends React.Component<AppProps> {
   public async componentDidMount() {
     const { auth } = this.props;
     if (this.props.location.pathname === '/callback') {
-      this.setState({ checkingSession: false });
+      auth.checkingSession = false;
       return;
     }
 
@@ -32,10 +30,12 @@ class App extends React.Component<AppProps> {
     auth
       .silentAuth()
       .then(() => {
-        this.setState({ checkingSession: false });
+        auth.checkingSession = false;
+        this.forceUpdate();
       })
       .catch(err => {
-        this.setState({ checkingSession: false });
+        auth.checkingSession = false;
+        this.forceUpdate();
         if (err.error !== 'login_required') {
           console.log(err.error);
         }
@@ -59,14 +59,4 @@ class App extends React.Component<AppProps> {
   }
 }
 
-const AppWithRouter = withRouter(App);
-
-const AppWithContextAndRouter = () => {
-  return (
-    <AuthContext.Consumer>
-      {authContext => <AppWithRouter auth={authContext} />}
-    </AuthContext.Consumer>
-  );
-};
-
-export default AppWithContextAndRouter;
+export default withAuth(withRouter(App));
