@@ -2,24 +2,23 @@
   "name": "react-project",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "React Typescript project with Parcel and Auth0",
+  "description": "React Typescript project with Auth0",
+  "homepage": ".",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "yarn build:clean; parcel build src/index.html",
-    "build:clean": "./scripts/build-setup.sh",
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
     "lint": "tslint --project .",
     "format": "prettier --write \"src/**/*.{ts,tsx,scss,json,js,jsx,css}\"",
     "format:check": "prettier --list-different \"src/**/*.{ts,tsx,scss,json,js,jsx,css}\"",
-    "test": "jest --silent",
-    "test:update": "yarn test -u",
-    "test:watch": "jest --watch"
+    "test": "react-scripts test"
   },
   "dependencies": {
     "auth0-js": "^9.8.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.3"
   },
   "devDependencies": {
     "@types/auth0-js": "^8.11.8",
@@ -32,7 +31,7 @@
     "@types/react-router-dom": "^4.3.1",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
-    "parcel-bundler": "^1.11.0",
+    "node-sass": "^4.11.0",
     "prettier": "^1.15.3",
     "react-testing-library": "^5.4.4",
     "sass": "^1.15.2",
@@ -41,5 +40,11 @@
     "tslint-config-prettier": "^1.16.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.2.2"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

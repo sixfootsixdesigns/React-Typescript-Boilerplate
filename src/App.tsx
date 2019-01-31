@@ -19,10 +19,12 @@ import { withAuth, AuthProps } from './lib/with-auth';
 interface AppProps extends AuthProps, RouteComponentProps<any> {}
 
 class App extends React.Component<AppProps> {
-  public async componentDidMount() {
+  public componentDidMount() {
     const { auth } = this.props;
+
     if (this.props.location.pathname === '/callback') {
       auth.checkingSession = false;
+      this.forceUpdate();
       return;
     }
 

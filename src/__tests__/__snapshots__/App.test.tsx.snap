@@ -17,7 +17,6 @@ exports[`App Renders Admin 1`] = `
     </a>
     <a
       href="/logout"
-      id="logout-link"
     >
       Logout
     </a>
@@ -49,7 +48,6 @@ exports[`App Renders App home 1`] = `
     </a>
     <a
       href="/login"
-      id="login-link"
     >
       Login
     </a>
@@ -81,7 +79,6 @@ exports[`App Renders callback 1`] = `
     </a>
     <a
       href="/logout"
-      id="logout-link"
     >
       Logout
     </a>
@@ -131,7 +128,6 @@ exports[`App Renders login 1`] = `
     </a>
     <a
       href="/logout"
-      id="logout-link"
     >
       Logout
     </a>
@@ -177,7 +173,6 @@ exports[`App Renders logout 1`] = `
     </a>
     <a
       href="/logout"
-      id="logout-link"
     >
       Logout
     </a>

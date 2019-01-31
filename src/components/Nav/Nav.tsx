@@ -10,20 +10,12 @@ class Nav extends React.Component<AuthProps> {
     return (
       <div className="navbar">
         {auth.isAuthenticated() && profile && (
-          <span id="loggedInUser">Logged in as: {profile.name}</span>
+          <span>Logged in as: {profile.name}</span>
         )}
         <Link to="/">Home</Link>
         <Link to="/admin">Admin</Link>
-        {auth.isAuthenticated() && (
-          <Link id="logout-link" to="/logout">
-            Logout
-          </Link>
-        )}
-        {!auth.isAuthenticated() && (
-          <Link id="login-link" to="/login">
-            Login
-          </Link>
-        )}
+        {auth.isAuthenticated() && <Link to="/logout">Logout</Link>}
+        {!auth.isAuthenticated() && <Link to="/login">Login</Link>}
       </div>
     );
   }

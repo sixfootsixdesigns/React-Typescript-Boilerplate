@@ -1,6 +1,6 @@
 .DS_STORE
 
-/dist/
+/build/
 node_modules
 .cache
 .env

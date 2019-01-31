@@ -4,9 +4,7 @@ exports[`Nav Logged In State 1`] = `
 <div
   class="navbar"
 >
-  <span
-    id="loggedInUser"
-  >
+  <span>
     Logged in as: 
     Bob
   </span>
@@ -22,7 +20,6 @@ exports[`Nav Logged In State 1`] = `
   </a>
   <a
     href="/logout"
-    id="logout-link"
   >
     Logout
   </a>
@@ -45,7 +42,6 @@ exports[`Nav Logged out State 1`] = `
   </a>
   <a
     href="/login"
-    id="login-link"
   >
     Login
   </a>
@@ -68,7 +64,6 @@ exports[`Nav Renders Nav 1`] = `
   </a>
   <a
     href="/login"
-    id="login-link"
   >
     Login
   </a>

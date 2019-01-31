@@ -20,9 +20,10 @@ class Auth {
   private expiresAt: number = 0;
   private profile: AuthProfile | null = null;
   private auth0 = new auth0.WebAuth({
-    domain: process.env.AUTH_DOMAIN || '',
-    clientID: process.env.AUTH_CLIENT_ID || '',
-    redirectUri: process.env.AUTH_CALLBACK || 'http://localhost:3000/callback',
+    domain: process.env.REACT_APP_AUTH_DOMAIN || '',
+    clientID: process.env.REACT_APP_AUTH_CLIENT_ID || '',
+    redirectUri:
+      process.env.REACT_APP_AUTH_CALLBACK || 'http://localhost:3000/callback',
     responseType: 'token id_token',
     scope: 'openid profile email'
   });
@@ -88,8 +89,8 @@ class Auth {
     this.profile = null;
 
     this.auth0.logout({
-      returnTo: process.env.AUTH_RETURN_URL,
-      clientID: process.env.AUTH_CLIENT_ID
+      returnTo: process.env.REACT_APP_AUTH_RETURN_URL,
+      clientID: process.env.REACT_APP_AUTH_CLIENT_ID
     });
   }
 
@@ -101,24 +102,8 @@ class Auth {
     const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
-    this.profile = this.parseTokenPayload(authResult.idTokenPayload);
+    this.profile = authResult.idTokenPayload;
     this.expiresAt = expiresAt;
-  }
-
-  private parseTokenPayload(payload: any): AuthProfile {
-    const obj: any = {};
-    const auth0Namespace = process.env.AUTH_TOKEN_NAMESPACE;
-    if (!auth0Namespace) {
-      return obj;
-    }
-
-    for (const key in payload) {
-      if (payload.hasOwnProperty(key)) {
-        obj[key.replace(auth0Namespace, '')] = payload[key];
-      }
-    }
-
-    return obj;
   }
 }
 
