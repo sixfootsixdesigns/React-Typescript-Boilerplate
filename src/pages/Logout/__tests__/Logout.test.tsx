@@ -1,6 +1,6 @@
 import React from 'react';
 import Logout from '../Logout';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';
 

@@ -14,7 +14,7 @@ export interface AuthProfile {
   email?: string;
 }
 
-class Auth {
+export class Auth {
   private accessToken: string | null = null;
   private idToken: string | null = null;
   private expiresAt: number = 0;
@@ -106,7 +106,3 @@ class Auth {
     this.expiresAt = expiresAt;
   }
 }
-
-const AuthClient = new Auth();
-
-export default AuthClient;

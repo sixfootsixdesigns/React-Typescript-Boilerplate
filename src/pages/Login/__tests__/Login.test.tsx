@@ -1,6 +1,6 @@
 import React from 'react';
 import Login from '../Login';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup } from '@testing-library/react';
 import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';
 
 afterEach(cleanup);

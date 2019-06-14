@@ -3,10 +3,10 @@ import { AuthProfile } from './auth';
 
 export interface AuthContextInterface {
   checkingSession: boolean;
-  getAccessToken: () => string | null;
-  getIdToken: () => string | null;
-  getProfile: () => AuthProfile | null;
-  isAuthenticated: () => boolean;
+  profile: AuthProfile | null;
+  token: string | null;
+  idToken: string | null;
+  isAuthenticated: boolean;
   handleAuthentication: () => Promise<void>;
   silentAuth: () => Promise<void>;
   login: () => void;
@@ -15,10 +15,10 @@ export interface AuthContextInterface {
 
 export const authContextDefaults: AuthContextInterface = {
   checkingSession: false,
-  getAccessToken: () => null,
-  getIdToken: () => null,
-  getProfile: () => null,
-  isAuthenticated: () => false,
+  profile: null,
+  token: null,
+  idToken: null,
+  isAuthenticated: false,
   handleAuthentication: () => Promise.resolve(),
   silentAuth: () => Promise.resolve(),
   login: () => {},

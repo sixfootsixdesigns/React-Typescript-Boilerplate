@@ -1,6 +1,6 @@
 import React from 'react';
 import Callback from '../Callback';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { authContextDefaults, AuthContext } from '../../../lib/AuthContext';
 

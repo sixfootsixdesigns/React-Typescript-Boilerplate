@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../Nav';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';
 
@@ -24,18 +24,16 @@ describe('Nav', () => {
   });
 
   it('Logged In State', () => {
-    auth.isAuthenticated = () => true;
-    auth.getProfile = () => {
-      return {
-        name: 'Bob'
-      };
+    auth.isAuthenticated = true;
+    auth.profile = {
+      name: 'Bob'
     };
     const { container } = render(<TestComponent auth={auth} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('Logged out State', () => {
-    auth.isAuthenticated = () => false;
+    auth.isAuthenticated = false;
     const { container } = render(<TestComponent auth={auth} />);
     expect(container.firstChild).toMatchSnapshot();
   });

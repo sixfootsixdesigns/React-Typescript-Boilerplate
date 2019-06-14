@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route } from 'react-router';
 import Spinner from '../Spinner/Spinner';
-import { AuthProps, withAuth } from '../../lib/with-auth';
+import { AuthContext } from '../../lib/AuthContext';
 
-interface SecuredRouteProps extends AuthProps {
+interface SecuredRouteProps {
   path: string;
   component: any;
   exact?: boolean;
 }
 
 const SecuredRoute = (props: SecuredRouteProps) => {
-  const { exact, auth, component: ComponentNode, path } = props;
+  const context = useContext(AuthContext);
+  const { exact, component: ComponentNode, path } = props;
   return (
     <Route
       exact={exact || false}
       path={path}
       render={() => {
-        if (auth.checkingSession) {
+        if (context.checkingSession) {
           return <Spinner text="Checking Session" />;
         }
-        if (!auth.isAuthenticated()) {
-          auth.login();
+        if (!context.isAuthenticated) {
+          context.login();
           return null;
         }
         return <ComponentNode />;
@@ -29,4 +30,4 @@ const SecuredRoute = (props: SecuredRouteProps) => {
   );
 };
 
-export default withAuth(SecuredRoute);
+export default SecuredRoute;

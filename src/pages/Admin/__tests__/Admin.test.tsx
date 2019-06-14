@@ -1,6 +1,6 @@
 import React from 'react';
 import Admin from '../Admin';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup } from '@testing-library/react';
 
 afterEach(cleanup);
 

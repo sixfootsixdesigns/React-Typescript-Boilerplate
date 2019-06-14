@@ -1,37 +1,38 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import Spinner from '../../components/Spinner/Spinner';
-import { withAuth, AuthProps } from '../../lib/with-auth';
+import { AuthContext } from '../../lib/AuthContext';
 
 interface CallbackState {
   error: string | null;
 }
 
-interface CallbackProps extends AuthProps, RouteComponentProps<any> {}
-
-class Callback extends React.Component<CallbackProps, CallbackState> {
+class Callback extends React.Component<
+  RouteComponentProps<any>,
+  CallbackState
+> {
   public state = {
     error: null
   };
+  public static contextType = AuthContext;
+  public context!: React.ContextType<typeof AuthContext>;
 
   public componentDidMount() {
-    const { auth } = this.props;
     try {
-      auth.handleAuthentication().then(() => {
+      this.context.handleAuthentication().then(() => {
         this.props.history.replace('/');
       });
     } catch (ex) {
-      this.setState({
-        error: ex.errorDescription || ex.message
-      });
+      this.setState({ error: ex.errorDescription || ex.message });
     }
   }
 
   public render() {
+    const { error } = this.state;
     return (
       <div className="callbackPage">
-        {this.state.error ? (
-          <div className="error">{this.state.error}</div>
+        {error ? (
+          <div className="error">{error}</div>
         ) : (
           <Spinner text="Loading Your Profile" />
         )}
@@ -40,4 +41,4 @@ class Callback extends React.Component<CallbackProps, CallbackState> {
   }
 }
 
-export default withAuth(withRouter(Callback));
+export default withRouter(Callback);

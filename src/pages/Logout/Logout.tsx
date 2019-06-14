@@ -1,15 +1,15 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Spinner from '../../components/Spinner/Spinner';
-import { withAuth, AuthProps } from '../../lib/with-auth';
+import { AuthContext } from '../../lib/AuthContext';
 
-interface LogoutProps extends AuthProps, RouteComponentProps<any> {}
+class Logout extends React.Component<RouteComponentProps<any>> {
+  public static contextType = AuthContext;
+  public context!: React.ContextType<typeof AuthContext>;
 
-class Logout extends React.Component<LogoutProps> {
   public componentDidMount() {
-    const { history, auth } = this.props;
-    auth.logout();
-    history.replace('/');
+    this.context.logout();
+    this.props.history.replace('/');
   }
 
   public render() {
@@ -17,4 +17,4 @@ class Logout extends React.Component<LogoutProps> {
   }
 }
 
-export default withAuth(withRouter(Logout));
+export default withRouter(Logout);

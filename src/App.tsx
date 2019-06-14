@@ -14,36 +14,8 @@ import SecuredRoute from './components/SecuredRoute/SecuredRoute';
 import Nav from './components/Nav/Nav';
 import './app.scss';
 import Home from './pages/Home/Home';
-import { withAuth, AuthProps } from './lib/with-auth';
 
-interface AppProps extends AuthProps, RouteComponentProps<any> {}
-
-class App extends React.Component<AppProps> {
-  public componentDidMount() {
-    const { auth } = this.props;
-
-    if (this.props.location.pathname === '/callback') {
-      auth.checkingSession = false;
-      this.forceUpdate();
-      return;
-    }
-
-    // check to see if user is already authed
-    auth
-      .silentAuth()
-      .then(() => {
-        auth.checkingSession = false;
-        this.forceUpdate();
-      })
-      .catch(err => {
-        auth.checkingSession = false;
-        this.forceUpdate();
-        if (err.error !== 'login_required') {
-          console.log(err.error);
-        }
-      });
-  }
-
+class App extends React.Component<RouteComponentProps<any>> {
   public render() {
     return (
       <div>
@@ -61,4 +33,4 @@ class App extends React.Component<AppProps> {
   }
 }
 
-export default withAuth(withRouter(App));
+export default withRouter(App);

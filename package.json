@@ -4,6 +4,10 @@
   "license": "MIT",
   "description": "React Typescript project with Auth0",
   "homepage": ".",
+  "engines": {
+    "node": "^10.14.1",
+    "yarn": "^1.5"
+  },
   "scripts": {
     "dev": "react-scripts start",
     "build": "react-scripts build",
@@ -13,33 +17,33 @@
     "test": "react-scripts test"
   },
   "dependencies": {
-    "auth0-js": "^9.8.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.3"
+    "auth0-js": "^9.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^2.1.8"
   },
   "devDependencies": {
-    "@types/auth0-js": "^8.11.8",
+    "@testing-library/react": "^8.0.1",
+    "@types/auth0-js": "^9.10.2",
     "@types/classnames": "^2.2.7",
-    "@types/jest": "^23.3.11",
+    "@types/jest": "^24.0.14",
     "@types/node": "^10.12.18",
-    "@types/react": "^16.7.6",
-    "@types/react-dom": "^16.0.9",
-    "@types/react-router": "^4.4.3",
-    "@types/react-router-dom": "^4.3.1",
+    "@types/react": "^16.8.20",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-router": "^5.0.2",
+    "@types/react-router-dom": "^4.3.4",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.15.3",
-    "react-testing-library": "^5.4.4",
-    "sass": "^1.15.2",
+    "sass": "^1.21.0",
     "ts-jest": "^23.10.5",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.16.0",
-    "tslint-react": "^3.6.0",
-    "typescript": "^3.2.2"
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.2"
   },
   "browserslist": [
     ">0.2%",

@@ -1,6 +1,6 @@
 import React from 'react';
 import SecuredRoute from '../SecuredRoute';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup } from '@testing-library/react';
 import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -31,7 +31,7 @@ describe('SecuredRoute', () => {
 
   it('Renders page if authed', () => {
     auth.checkingSession = false;
-    auth.isAuthenticated = () => true;
+    auth.isAuthenticated = true;
     const { container } = render(<TestComponent auth={auth} />);
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -39,7 +39,7 @@ describe('SecuredRoute', () => {
   it('Calls login if not authed and not checking', () => {
     let called = false;
     auth.checkingSession = false;
-    auth.isAuthenticated = () => false;
+    auth.isAuthenticated = false;
     auth.login = () => {
       called = true;
       return null;
