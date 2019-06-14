@@ -88,6 +88,8 @@ export class Auth {
     this.expiresAt = 0;
     this.profile = null;
 
+    localStorage.removeItem('isLoggedIn');
+
     this.auth0.logout({
       returnTo: process.env.REACT_APP_AUTH_RETURN_URL,
       clientID: process.env.REACT_APP_AUTH_CLIENT_ID
@@ -99,6 +101,7 @@ export class Auth {
   }
 
   private async setSession(authResult: any) {
+    localStorage.setItem('isLoggedIn', 'true');
     const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;

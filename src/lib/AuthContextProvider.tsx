@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps } from 'react-router';
 
 const AuthClient = new Auth();
 
-class AuthContextProvider extends React.Component<RouteComponentProps<any>> {
+class AuthContextProvider extends React.Component<RouteComponentProps> {
   public state: AuthContextInterface = {
     checkingSession: true,
     profile: null,

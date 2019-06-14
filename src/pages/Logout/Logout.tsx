@@ -3,7 +3,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Spinner from '../../components/Spinner/Spinner';
 import { AuthContext } from '../../lib/AuthContext';
 
-class Logout extends React.Component<RouteComponentProps<any>> {
+class Logout extends React.Component<RouteComponentProps> {
   public static contextType = AuthContext;
   public context!: React.ContextType<typeof AuthContext>;
 

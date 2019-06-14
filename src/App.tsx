@@ -15,7 +15,7 @@ import Nav from './components/Nav/Nav';
 import './app.scss';
 import Home from './pages/Home/Home';
 
-class App extends React.Component<RouteComponentProps<any>> {
+class App extends React.Component<RouteComponentProps> {
   public render() {
     return (
       <div>

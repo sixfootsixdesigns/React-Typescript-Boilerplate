@@ -7,10 +7,7 @@ interface CallbackState {
   error: string | null;
 }
 
-class Callback extends React.Component<
-  RouteComponentProps<any>,
-  CallbackState
-> {
+class Callback extends React.Component<RouteComponentProps, CallbackState> {
   public state = {
     error: null
   };
