@@ -7,7 +7,7 @@ export class Login extends React.Component {
   public context!: React.ContextType<typeof AuthContext>;
 
   public componentDidMount() {
-    this.context.handleLogin();
+    this.context.login();
   }
 
   public render() {

@@ -40,7 +40,7 @@ describe('SecuredRoute', () => {
     let called = false;
     auth.checkingSession = false;
     auth.isAuthenticated = false;
-    auth.handleLogin = () => {
+    auth.login = () => {
       called = true;
       return null;
     };

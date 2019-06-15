@@ -7,8 +7,8 @@ export interface AuthContextInterface {
   expiresAt: number | null;
   isAuthenticated: boolean;
   handleAuthentication: () => void;
-  handleLogin: () => void;
-  handleLogout: () => void;
+  login: () => void;
+  logout: () => void;
 }
 
 export const authContextDefaults: AuthContextInterface = {
@@ -18,8 +18,8 @@ export const authContextDefaults: AuthContextInterface = {
   idToken: null,
   isAuthenticated: false,
   handleAuthentication: () => null,
-  handleLogin: () => null,
-  handleLogout: () => null
+  login: () => null,
+  logout: () => null
 };
 
 export const AuthContext = React.createContext<AuthContextInterface>(

@@ -10,7 +10,7 @@ const auth = authContextDefaults;
 describe('Login Page', () => {
   it('Renders Spinner and calls login', () => {
     let called = false;
-    auth.handleLogin = () => {
+    auth.login = () => {
       called = true;
       return null;
     };

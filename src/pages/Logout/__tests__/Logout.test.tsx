@@ -20,7 +20,7 @@ const TestComponent = (props: any) => {
 describe('Logout Page', () => {
   it('Renders spinner and calls logout', () => {
     let called = false;
-    auth.handleLogout = () => {
+    auth.logout = () => {
       called = true;
       return null;
     };

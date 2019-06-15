@@ -21,7 +21,7 @@ export const SecuredRoute = (props: SecuredRouteProps) => {
           return <Spinner text="Checking Session" />;
         }
         if (!context.isAuthenticated) {
-          context.handleLogin();
+          context.login();
           return null;
         }
         return <ComponentNode />;

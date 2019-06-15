@@ -7,7 +7,7 @@ export class Logout extends React.Component {
   public context!: React.ContextType<typeof AuthContext>;
 
   public componentDidMount() {
-    this.context.handleLogout();
+    this.context.logout();
   }
 
   public render() {

@@ -53,8 +53,8 @@ class AuthContextProviderComponent extends React.Component<
     checkingSession: false,
     isAuthenticated: false,
     handleAuthentication: this.handleAuthentication.bind(this),
-    handleLogin: this.handleLogin.bind(this),
-    handleLogout: this.handleLogout.bind(this)
+    login: this.login.bind(this),
+    logout: this.logout.bind(this)
   };
 
   public componentDidMount() {
@@ -63,7 +63,7 @@ class AuthContextProviderComponent extends React.Component<
     }
   }
 
-  public handleLogin() {
+  public login() {
     this.auth0.authorize();
   }
 
@@ -126,12 +126,12 @@ class AuthContextProviderComponent extends React.Component<
           renewSessionCallback();
         }
       } else if (err) {
-        this.handleLogout();
+        this.logout();
       }
     });
   }
 
-  public handleLogout() {
+  public logout() {
     const { logoutCallback } = this.props;
 
     if (this.tokenRenewalTimeout) {
