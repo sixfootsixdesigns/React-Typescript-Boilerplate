@@ -1,6 +1,6 @@
 import React from 'react';
 import { Spinner } from '../../components/Spinner/Spinner';
-import { AuthContext } from '../../lib/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
 export class Login extends React.Component {
   public static contextType = AuthContext;

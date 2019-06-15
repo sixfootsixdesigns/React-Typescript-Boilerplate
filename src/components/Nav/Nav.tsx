@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../lib/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import './nav.scss';
 
 export const Nav = () => {

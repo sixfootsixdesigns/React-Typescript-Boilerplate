@@ -1,7 +1,7 @@
 import React from 'react';
 import { SecuredRoute } from '../SecuredRoute';
 import { render, cleanup } from '@testing-library/react';
-import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';
+import { AuthContext, authContextDefaults } from '../../../context/AuthContext';
 import { MemoryRouter } from 'react-router-dom';
 
 afterEach(cleanup);

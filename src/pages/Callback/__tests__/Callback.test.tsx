@@ -2,7 +2,7 @@ import React from 'react';
 import { Callback } from '../Callback';
 import { render, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { authContextDefaults, AuthContext } from '../../../lib/AuthContext';
+import { authContextDefaults, AuthContext } from '../../../context/AuthContext';
 import { Spinner } from '../../../components/Spinner/Spinner';
 
 afterEach(cleanup);

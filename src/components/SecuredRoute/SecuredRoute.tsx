@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Route } from 'react-router';
 import { Spinner } from '../Spinner/Spinner';
-import { AuthContext } from '../../lib/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
 interface SecuredRouteProps {
   path: string;

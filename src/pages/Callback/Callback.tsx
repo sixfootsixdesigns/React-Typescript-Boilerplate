@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { AuthContext } from '../../lib/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
 interface CallbackProps extends RouteComponentProps {
   loader: any;
