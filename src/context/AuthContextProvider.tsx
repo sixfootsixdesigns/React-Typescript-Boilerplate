@@ -15,7 +15,9 @@ export interface AuthContextProviderProps extends RouteComponentProps {
   renewSessionCallback?: () => void;
 }
 
-class AuthContextProvider extends React.Component<AuthContextProviderProps> {
+class AuthContextProviderComponent extends React.Component<
+  AuthContextProviderProps
+> {
   private auth0: auth0.WebAuth;
 
   constructor(props: AuthContextProviderProps) {
@@ -160,4 +162,4 @@ class AuthContextProvider extends React.Component<AuthContextProviderProps> {
   }
 }
 
-export const AppContextProviderWithRoutes = withRouter(AuthContextProvider);
+export const AppContextProvider = withRouter(AuthContextProviderComponent);
