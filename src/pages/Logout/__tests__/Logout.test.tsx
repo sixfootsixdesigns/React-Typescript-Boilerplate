@@ -1,5 +1,5 @@
 import React from 'react';
-import Logout from '../Logout';
+import { Logout } from '../Logout';
 import { render, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';
@@ -20,7 +20,7 @@ const TestComponent = (props: any) => {
 describe('Logout Page', () => {
   it('Renders spinner and calls logout', () => {
     let called = false;
-    auth.logout = () => {
+    auth.handleLogout = () => {
       called = true;
       return null;
     };

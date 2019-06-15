@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from '../Nav';
+import { Nav } from '../Nav';
 import { render, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';

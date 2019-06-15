@@ -29,7 +29,7 @@ describe('App', () => {
   });
 
   it('Renders Admin', () => {
-    auth.isAuthenticated = () => true;
+    auth.isAuthenticated = true;
     const { container } = render(
       <TestComponent auth={auth} paths={['/admin']} index={0} />
     );

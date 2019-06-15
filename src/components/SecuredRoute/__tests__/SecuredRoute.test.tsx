@@ -1,5 +1,5 @@
 import React from 'react';
-import SecuredRoute from '../SecuredRoute';
+import { SecuredRoute } from '../SecuredRoute';
 import { render, cleanup } from '@testing-library/react';
 import { AuthContext, authContextDefaults } from '../../../lib/AuthContext';
 import { MemoryRouter } from 'react-router-dom';
@@ -40,7 +40,7 @@ describe('SecuredRoute', () => {
     let called = false;
     auth.checkingSession = false;
     auth.isAuthenticated = false;
-    auth.login = () => {
+    auth.handleLogin = () => {
       called = true;
       return null;
     };

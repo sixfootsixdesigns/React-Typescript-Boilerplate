@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Route } from 'react-router';
-import Spinner from '../Spinner/Spinner';
+import { Spinner } from '../Spinner/Spinner';
 import { AuthContext } from '../../lib/AuthContext';
 
 interface SecuredRouteProps {
@@ -9,7 +9,7 @@ interface SecuredRouteProps {
   exact?: boolean;
 }
 
-const SecuredRoute = (props: SecuredRouteProps) => {
+export const SecuredRoute = (props: SecuredRouteProps) => {
   const context = useContext(AuthContext);
   const { exact, component: ComponentNode, path } = props;
   return (
@@ -21,7 +21,7 @@ const SecuredRoute = (props: SecuredRouteProps) => {
           return <Spinner text="Checking Session" />;
         }
         if (!context.isAuthenticated) {
-          context.login();
+          context.handleLogin();
           return null;
         }
         return <ComponentNode />;
@@ -29,5 +29,3 @@ const SecuredRoute = (props: SecuredRouteProps) => {
     />
   );
 };
-
-export default SecuredRoute;

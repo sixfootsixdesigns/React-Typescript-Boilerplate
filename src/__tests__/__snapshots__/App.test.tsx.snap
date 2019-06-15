@@ -84,30 +84,8 @@ exports[`App Renders callback 1`] = `
     </a>
   </div>
   <div
-    class="callbackPage"
-  >
-    <div
-      class="Spinner"
-    >
-      <div
-        class="Spinner-spinner"
-      >
-        <svg
-          viewBox="0 0 64 64"
-        >
-          <circle
-            r="26"
-            transform="translate(32,32)"
-          />
-        </svg>
-      </div>
-      <div
-        class="Spinner-content"
-      >
-        Loading Your Profile
-      </div>
-    </div>
-  </div>
+    class="auth-callback-page"
+  />
 </div>
 `;
 
@@ -177,12 +155,26 @@ exports[`App Renders logout 1`] = `
       Logout
     </a>
   </div>
-  <main
-    class="home"
+  <div
+    class="Spinner logoutPage"
   >
-    <h1>
-      Welcome
-    </h1>
-  </main>
+    <div
+      class="Spinner-spinner"
+    >
+      <svg
+        viewBox="0 0 64 64"
+      >
+        <circle
+          r="26"
+          transform="translate(32,32)"
+        />
+      </svg>
+    </div>
+    <div
+      class="Spinner-content"
+    >
+      Logging out
+    </div>
+  </div>
 </div>
 `;

@@ -6,14 +6,14 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import Callback from './pages/Callback/Callback';
-import Admin from './pages/Admin/Admin';
-import Login from './pages/Login/Login';
-import Logout from './pages/Logout/Logout';
-import SecuredRoute from './components/SecuredRoute/SecuredRoute';
-import Nav from './components/Nav/Nav';
+import { Callback } from './pages/Callback/Callback';
+import { Admin } from './pages/Admin/Admin';
+import { Login } from './pages/Login/Login';
+import { Logout } from './pages/Logout/Logout';
+import { SecuredRoute } from './components/SecuredRoute/SecuredRoute';
+import { Nav } from './components/Nav/Nav';
 import './app.scss';
-import Home from './pages/Home/Home';
+import { Home } from './pages/Home/Home';
 
 class App extends React.Component<RouteComponentProps> {
   public render() {

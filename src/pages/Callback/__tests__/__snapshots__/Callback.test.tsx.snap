@@ -1,20 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Callback Page Renders error 1`] = `
+exports[`Callback Page Renders calls handleAuthentication 1`] = `
 <div
-  class="callbackPage"
->
-  <div
-    class="error"
-  >
-    error
-  </div>
-</div>
-`;
-
-exports[`Callback Page Renders spinner and calls handleAuthentication 1`] = `
-<div
-  class="callbackPage"
+  class="auth-callback-page"
 >
   <div
     class="Spinner"
@@ -31,10 +19,28 @@ exports[`Callback Page Renders spinner and calls handleAuthentication 1`] = `
         />
       </svg>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Callback Page Renders does not call handleAuthentication 1`] = `
+<div
+  class="auth-callback-page"
+>
+  <div
+    class="Spinner"
+  >
     <div
-      class="Spinner-content"
+      class="Spinner-spinner"
     >
-      Loading Your Profile
+      <svg
+        viewBox="0 0 64 64"
+      >
+        <circle
+          r="26"
+          transform="translate(32,32)"
+        />
+      </svg>
     </div>
   </div>
 </div>

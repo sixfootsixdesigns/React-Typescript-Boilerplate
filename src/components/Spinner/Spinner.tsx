@@ -8,7 +8,7 @@ export interface SpinnerDisplayProps {
   className?: any;
 }
 
-class Spinner extends React.Component<SpinnerDisplayProps> {
+export class Spinner extends React.Component<SpinnerDisplayProps> {
   public static defaultProps = {
     text: '',
     noOverlay: false
@@ -35,5 +35,3 @@ class Spinner extends React.Component<SpinnerDisplayProps> {
     );
   }
 }
-
-export default Spinner;

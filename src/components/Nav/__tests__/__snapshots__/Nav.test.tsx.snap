@@ -4,10 +4,6 @@ exports[`Nav Logged In State 1`] = `
 <div
   class="navbar"
 >
-  <span>
-    Logged in as: 
-    Bob
-  </span>
   <a
     href="/"
   >

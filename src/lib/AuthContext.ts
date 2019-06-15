@@ -1,28 +1,39 @@
 import React from 'react';
-import { AuthProfile } from './auth';
+
+export interface AuthProfile {
+  at_hash?: string;
+  aud?: string;
+  exp?: number;
+  iat?: number;
+  iss?: string;
+  nonce?: string;
+  sub?: string;
+  locale?: string;
+  name?: string;
+  picture?: string;
+  email?: string;
+}
 
 export interface AuthContextInterface {
   checkingSession: boolean;
-  profile: AuthProfile | null;
   token: string | null;
   idToken: string | null;
+  expiresAt: number | null;
   isAuthenticated: boolean;
-  handleAuthentication: () => Promise<void>;
-  silentAuth: () => Promise<void>;
-  login: () => void;
-  logout: () => void;
+  handleAuthentication: () => void;
+  handleLogin: () => void;
+  handleLogout: () => void;
 }
 
 export const authContextDefaults: AuthContextInterface = {
   checkingSession: false,
-  profile: null,
+  expiresAt: null,
   token: null,
   idToken: null,
   isAuthenticated: false,
-  handleAuthentication: () => Promise.resolve(),
-  silentAuth: () => Promise.resolve(),
-  login: () => {},
-  logout: () => {}
+  handleAuthentication: () => null,
+  handleLogin: () => null,
+  handleLogout: () => null
 };
 
 export const AuthContext = React.createContext<AuthContextInterface>(
