@@ -19,6 +19,7 @@ class AuthContextProviderComponent extends React.Component<
   AuthContextProviderProps
 > {
   private auth0: auth0.WebAuth;
+  private tokenRenewalTimeout: NodeJS.Timeout | null = null;
 
   constructor(props: AuthContextProviderProps) {
     super(props);
@@ -49,12 +50,18 @@ class AuthContextProviderComponent extends React.Component<
     token: null,
     idToken: null,
     expiresAt: 0,
-    checkingSession: true,
+    checkingSession: false,
     isAuthenticated: false,
     handleAuthentication: this.handleAuthentication.bind(this),
     handleLogin: this.handleLogin.bind(this),
     handleLogout: this.handleLogout.bind(this)
   };
+
+  public componentDidMount() {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      this.renewSession();
+    }
+  }
 
   public handleLogin() {
     this.auth0.authorize();
@@ -68,8 +75,6 @@ class AuthContextProviderComponent extends React.Component<
         if (loginCallback) {
           loginCallback();
         }
-      } else if (err) {
-        console.log('handleAuthentication error', err);
       }
       this.props.history.push('/');
     });
@@ -85,9 +90,11 @@ class AuthContextProviderComponent extends React.Component<
 
   public async setSession(authResult: auth0.Auth0DecodedHash): Promise<void> {
     localStorage.setItem('isLoggedIn', 'true');
+
     const expiresAt = authResult.expiresIn
       ? authResult.expiresIn * 1000 + new Date().getTime()
       : 0;
+
     await new Promise(resolve => {
       this.setState(
         {
@@ -98,6 +105,7 @@ class AuthContextProviderComponent extends React.Component<
           checkingSession: false
         },
         () => {
+          this.scheduleRenewal();
           resolve();
         }
       );
@@ -106,6 +114,11 @@ class AuthContextProviderComponent extends React.Component<
 
   public renewSession() {
     const { renewSessionCallback } = this.props;
+
+    this.setState({
+      checkingSession: true
+    });
+
     this.auth0.checkSession({}, async (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         await this.setSession(authResult);
@@ -113,22 +126,25 @@ class AuthContextProviderComponent extends React.Component<
           renewSessionCallback();
         }
       } else if (err) {
-        console.log('renewSession error', err);
+        this.handleLogout();
       }
-      this.setState({
-        checkingSession: false
-      });
     });
   }
 
   public handleLogout() {
     const { logoutCallback } = this.props;
+
+    if (this.tokenRenewalTimeout) {
+      clearTimeout(this.tokenRenewalTimeout);
+    }
+
     this.setState(
       {
         token: null,
         idToken: null,
         expiresAt: 0,
-        isAuthenticated: false
+        isAuthenticated: false,
+        checkingSession: false
       },
       () => {
         if (logoutCallback) {
@@ -149,8 +165,15 @@ class AuthContextProviderComponent extends React.Component<
     return new Date().getTime() < expiresAt;
   }
 
-  public componentDidMount() {
-    this.renewSession();
+  public scheduleRenewal() {
+    const expiresAt = this.state.expiresAt || 0;
+    const timeout = expiresAt - Date.now();
+
+    if (timeout > 0) {
+      this.tokenRenewalTimeout = setTimeout(() => {
+        this.renewSession();
+      }, timeout);
+    }
   }
 
   public render() {
