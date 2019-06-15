@@ -36,7 +36,7 @@ class AuthContextProvider extends React.Component<RouteComponentProps> {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        console.log('handle auth err', err);
+        console.log('handleAuthentication error', err);
       }
       this.props.history.push('/');
     });
@@ -51,7 +51,6 @@ class AuthContextProvider extends React.Component<RouteComponentProps> {
   }
 
   public setSession(authResult: auth0.Auth0DecodedHash) {
-    console.log(this.props.history);
     localStorage.setItem('isLoggedIn', 'true');
     const expiresAt = authResult.expiresIn
       ? authResult.expiresIn * 1000 + new Date().getTime()
@@ -70,7 +69,7 @@ class AuthContextProvider extends React.Component<RouteComponentProps> {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        console.log(err);
+        console.log('renewSession error', err);
       }
       this.setState({
         checkingSession: false
@@ -101,7 +100,6 @@ class AuthContextProvider extends React.Component<RouteComponentProps> {
   }
 
   public componentDidMount() {
-    console.log('mount');
     this.renewSession();
   }
 
