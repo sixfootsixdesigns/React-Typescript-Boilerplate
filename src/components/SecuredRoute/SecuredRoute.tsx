@@ -16,7 +16,7 @@ export const SecuredRoute = (props: SecuredRouteProps) => {
     <Route
       exact={exact || false}
       path={path}
-      render={() => {
+      render={routeProps => {
         if (context.checkingSession) {
           return <Spinner text="Checking Session" />;
         }
@@ -24,7 +24,7 @@ export const SecuredRoute = (props: SecuredRouteProps) => {
           context.login();
           return null;
         }
-        return <ComponentNode />;
+        return <ComponentNode {...routeProps} />;
       }}
     />
   );
