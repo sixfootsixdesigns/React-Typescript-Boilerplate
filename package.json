@@ -17,7 +17,7 @@
     "test": "react-scripts test"
   },
   "dependencies": {
-    "auth0-js": "^9.8.0",
+    "auth0-js": "^9.13.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router": "^5.0.1",
